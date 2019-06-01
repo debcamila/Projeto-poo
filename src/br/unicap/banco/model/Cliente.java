@@ -1,11 +1,11 @@
-package teste;
+package br.unicap.banco.model;
 
 public class Cliente {
 	private String nome;
 	private String cpf;
 	private int idade;
 	private TipoCliente tipo;
-	private Endereco end;
+	private Endereco endereco;
 	
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -39,7 +39,10 @@ public class Cliente {
 		this.tipo = tipo;
 	}
 	
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
 	public Endereco getEndereco() {
-		return end;
+		return endereco;
 	}
 }

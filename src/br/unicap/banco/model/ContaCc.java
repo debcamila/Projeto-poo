@@ -1,4 +1,4 @@
-package teste;
+package br.unicap.banco.model;
 
 public class ContaCc extends ContaAbstrata{
 	public ContaCc(String numero, double saldo) {

@@ -1,4 +1,4 @@
-epackage teste;
+package br.unicap.banco.model;
 
 public enum TipoCliente {
 	VIP,

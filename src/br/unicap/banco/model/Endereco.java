@@ -1,4 +1,4 @@
-package teste;
+package br.unicap.banco.model;
 
 public class Endereco {
 	private String cidade;

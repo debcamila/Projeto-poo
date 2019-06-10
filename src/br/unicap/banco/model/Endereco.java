@@ -1,36 +1,16 @@
 package br.unicap.banco.model;
 
 public class Endereco {
-	private String cidade;
-	private String estado;
 	private String bairro;
 	private String rua;
-	private String numero;
+	private int numero;
 	private String cep;
 	
-	public Endereco(String cidade, String estado, String bairro, String rua, String numero, String cep) {
-		this.cidade = cidade;
-		this.estado = estado;
+	public Endereco(String bairro, String rua, int numero, String cep) {
 		this.bairro = bairro;
 		this.rua = rua;
 		this.numero = numero;
 		this.cep = cep;
-	}
-	
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-	
-	public String getCidade() {
-		return cidade;
-	}
-	
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	
-	public String getEstado() {
-		return estado;
 	}
 	
 	public void setBairro(String bairro) {
@@ -49,11 +29,11 @@ public class Endereco {
 		return rua;
 	}
 	
-	public void setNumero(String numero) {
+	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 	
-	public String getNumero() {
+	public int getNumero() {
 		return numero;
 	}
 	

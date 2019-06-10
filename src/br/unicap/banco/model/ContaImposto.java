@@ -1,11 +1,21 @@
 package br.unicap.banco.model;
 
-public class ContaImposto extends ContaAbstrata{
-	
+import exceptions.ContaSaldoInsuficienteException;
+
+public class ContaImposto extends ContaAbstrata {
 	private final double IMPOSTO = 0.01;
 	
-	public void debitar(double value) {
+	public ContaImposto(String numero, double saldo, Cliente cliente) {
+		super(numero, saldo, cliente);
+	}
+	
+	public void debitar(double value) throws Exception {
 		double calculaImposto = IMPOSTO * value;
-		this.setSaldo(getSaldo() - (calculaImposto + IMPOSTO));
+		if (getSaldo() >= value + IMPOSTO) {
+			this.setSaldo(getSaldo() - (calculaImposto + IMPOSTO));
+		} 
+		else {
+			throw new ContaSaldoInsuficienteException();
+		}
 	}
 }

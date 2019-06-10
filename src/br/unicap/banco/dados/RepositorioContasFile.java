@@ -1,6 +1,7 @@
 package br.unicap.banco.dados;
 import java.io.File;
 import br.unicap.banco.model.ContaAbstrata;
+import br.unicap.banco.model.IRepContas;
 
 public class RepositorioContasFile implements IRepContas{
 	private String pathFile = "c://...";

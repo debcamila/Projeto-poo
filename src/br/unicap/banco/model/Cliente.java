@@ -7,6 +7,16 @@ public class Cliente {
 	private TipoCliente tipo;
 	private Endereco endereco;
 	
+	public Cliente (String nome, String cpf, int idade, TipoCliente tipo, String bairro, String rua, int numero, String cep) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.idade = idade;
+		this.tipo = tipo;
+		this.endereco = new Endereco(bairro, rua, numero, cep);
+	}
+	
+	public Cliente() {}
+	
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -44,5 +54,15 @@ public class Cliente {
 	}
 	public Endereco getEndereco() {
 		return endereco;
+	}
+	
+	@Override
+	public String toString() {
+		return "Cliente [CPF= " +cpf+ ", Nome=" +nome+ ", Tipo=" +tipo+ ", Endereco=" +endereco+ "]";
+	}
+	
+	@Override
+	public int compareTo(Cliente c) {
+		return this.getCpf().compareTo(c.getCpf());
 	}
 }

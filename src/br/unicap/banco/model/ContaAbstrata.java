@@ -1,5 +1,7 @@
 package br.unicap.banco.model;
 
+import exceptions.ContaSaldoInsuficienteException;
+
 //toda vez que uma classe concreta herda de uma classe abstrata, se essa classe abstrata tiver metodos abstratos ela é 
 //obrigada a implementar o metodo abstrato, se nao ela nao existe como objeto.
 
@@ -15,9 +17,10 @@ public abstract class ContaAbstrata {
 	
 	public ContaAbstrata() {}
 	
-	public ContaAbstrata(String numero, double saldo){
+	public ContaAbstrata(String numero, double saldo, Cliente cliente){
 		this.numero = numero;
 		this.saldo = saldo;
+		this.cliente = cliente;
 	}
 	
 	public void setNumero(String numero) {
@@ -36,17 +39,35 @@ public abstract class ContaAbstrata {
 		return saldo;
 	}
 	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+	
+	@Override
+	public String toString() {
+		return "ContaAbstrata [Número=" +numero+ ", Saldo=" +saldo+ ", Cliente=" +cliente+ "]";
+	}
+	
 	public void creditar(double value) { 
 		//pq implemento o metodo creditar? pq esse comportamento é comum para todos (ideia do reuso)
 		saldo = saldo + value;
 	}
 	
-	public abstract void debitar(double value);
+	public abstract void debitar(double value) throws Exception;
 	//como os filhos fazem o debitar diferente eu noa implemento.
 	//tem diferença na forma que eu atriuo o valor do atributo = semantica
 		
-	public void transferir(double valor, ContaAbstrata c) {
-		this.debitar(valor);
-        c.creditar(valor);
+	public void transferir(ContaAbstrata c, double valor) throws Exception {
+		try {
+			this.debitar(valor);
+			c.creditar(valor);
+		}
+		catch(ContaSaldoInsuficienteException e) {
+			throw e;
+		}
 	}
 }

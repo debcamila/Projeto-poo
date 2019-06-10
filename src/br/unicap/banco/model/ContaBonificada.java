@@ -4,8 +4,8 @@ public class ContaBonificada extends ContaCc{
 	private double bonus; 
 	private final double taxaBonus = 0.02;
 	
-	public ContaBonificada(String numero, double saldo) {
-		super(numero, saldo);
+	public ContaBonificada(String numero, double saldo, Cliente cliente) {
+		super(numero, saldo, cliente);
 	}
 	
 	public double getBonus() {

@@ -61,7 +61,7 @@ public class Cliente {
 		return "Cliente [CPF= " +cpf+ ", Nome=" +nome+ ", Tipo=" +tipo+ ", Endereco=" +endereco+ "]";
 	}
 	
-	@Override
+	
 	public int compareTo(Cliente c) {
 		return this.getCpf().compareTo(c.getCpf());
 	}

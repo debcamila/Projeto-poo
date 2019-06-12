@@ -1,3 +1,4 @@
+
 package br.unicap.banco.dados;
 
 import br.unicap.banco.model.Cliente;
@@ -58,7 +59,7 @@ public class RepositorioClientesArray implements IRepClientes{
 	
 	public void inserir (Cliente cli) throws Exception{
 		try {
-			if(existe(cli.getCpf() == false)) {
+			if(existe(cli.getCpf()) == false) {
 				clientes[indice] = cli;
 				indice = indice + 1;
 			}
@@ -66,7 +67,7 @@ public class RepositorioClientesArray implements IRepClientes{
 				throw new ClienteExisteException();
 			}
 		}
-		catch (ArrayIndexOutOfBoundsException e) {
+		catch (ArrayIndexOutOfBoundsException e) { /* se acessar uma posição inexistente de um vetor */
 			throw new ArrayCheioException();
 		}
 	}

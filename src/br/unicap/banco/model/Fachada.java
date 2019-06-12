@@ -3,10 +3,12 @@ package br.unicap.banco.model;
 import br.unicap.banco.dados.RepositorioClientesArray;
 import br.unicap.banco.dados.RepositorioContasArray;
 import exceptions.ArrayCheioException;
+import exceptions.ClienteExisteException;
 import exceptions.ClienteNaoEncontradoException;
 import exceptions.ContaExisteException;
 import exceptions.ContaNaoEncontradaException;
 import exceptions.ContaSaldoInsuficienteException;
+import exceptions.ValorInvalidoException;
 
 public class Fachada {
 	private static Fachada instancia;
@@ -66,6 +68,7 @@ public class Fachada {
 		catch(ClienteNaoEncontradoException e) {
 			e.getMessage();
 		}
+		return null;
 	}
 	
 	//métodos para contas
@@ -106,9 +109,9 @@ public class Fachada {
 		return null;
 	}
 	
-	public void creditar(String n, double valor) throws Exception {
+	public void creditar(String num, double valor) throws Exception {
 		try {
-			contas.creditar(n, valor);
+			contas.creditar(num, valor);
 		}
 		catch(ContaNaoEncontradaException | ValorInvalidoException e) {
 			e.getMessage();
@@ -130,7 +133,7 @@ public class Fachada {
 			ContaAbstrata d = contas.consultar(destino);
 
 			if (o != null && d != null) {
-				o.transferir(destino, valor);
+				o.transferir(d, valor);
 			}
 		}
 		catch(ContaNaoEncontradaException | ContaSaldoInsuficienteException e) {

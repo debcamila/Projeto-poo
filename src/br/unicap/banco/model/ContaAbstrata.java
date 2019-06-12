@@ -70,4 +70,19 @@ public abstract class ContaAbstrata {
 			throw e;
 		}
 	}
+	
+	/* métodos para hashmap */
+		@Override
+		public boolean equals(Object obj) {
+			boolean isEqual = false;
+			if (obj instanceof ContaAbstrata) { 
+				isEqual = this.getNumero().equals(((ContaAbstrata) obj).getNumero());
+			}
+			return isEqual;
+		}
+
+		@Override
+		public int hashCode() {
+			return this.getNumero().hashCode();
+		}
 }

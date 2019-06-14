@@ -30,7 +30,7 @@ public class RepositorioContasFile implements IRepContas {
 	
 	public boolean existe(ContaAbstrata c) throws Exception {
 		sincronizarObjeto();
-		return contas.containsKey(c.getNumero());
+		return contas.containsKey(c.getNumero()); //verificar se uma chave especifica está sendo mapeada para o HashMap ou não
 	}
 	
 	private void manipularOjeto() throws Exception {

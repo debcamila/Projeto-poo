@@ -26,14 +26,14 @@ public class RepClienteTreeSet implements IRepClientes {
 	@Override
 	public void inserir(Cliente c) {
 		// TODO Auto-generated method stub
-		clientes.add(c);
+		clientes.add(c); //tem que fazer o tratamento de exceções
 	}
 	
 	@Override
 	public void remover(Cliente c) {
 		// TODO Auto-generated method stub
 		for (Cliente cli : clientes) {
-			if(cli.getCpf().equals(c.getClass())) {
+			if(cli.getCpf().equals(c.getCpf())) {
 				clientes.remove(cli);
 				return;
 			}

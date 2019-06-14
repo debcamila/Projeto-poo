@@ -22,7 +22,7 @@ public class Fachada {
 		return instancia;
 	}
 	
-	private Fachada() {
+	private Fachada() { //construtor privado, para nao permitir que o objeto seja criado mais de uma vez
 		initCadastros();
 	}
 	
@@ -34,7 +34,7 @@ public class Fachada {
 		clientes = new CtrlCliente(repClientes);
 	}
 	
-	//métodos para clientes
+	//mï¿½todos para clientes
 	public void cadastrarCliente(Cliente c) throws Exception {
 		try {
 			clientes.inserir(c);
@@ -71,7 +71,7 @@ public class Fachada {
 		return null;
 	}
 	
-	//métodos para contas
+	//mï¿½todos para contas
 	public void cadastrarConta(ContaAbstrata c) throws Exception {
 		try {
 			contas.inserir(c);
@@ -140,6 +140,7 @@ public class Fachada {
 			e.getMessage();
 		}
 	}
+	
 	
 	
 }
